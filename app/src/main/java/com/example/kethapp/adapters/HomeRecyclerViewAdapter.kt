@@ -7,7 +7,8 @@ import com.bumptech.glide.Glide
 import com.example.kethapp.databinding.ItemViewBinding
 import com.example.kethapp.models.Item
 
-class HomeRecyclerViewAdapter(private val itemList: List<Item>) : RecyclerView.Adapter<HomeRecyclerViewAdapter.HomeViewHolder>() {
+class HomeRecyclerViewAdapter(private val itemList: List<Item>)
+    : RecyclerView.Adapter<HomeRecyclerViewAdapter.HomeViewHolder>() {
 
     inner class HomeViewHolder(private val binding: ItemViewBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(item: String){
@@ -16,10 +17,8 @@ class HomeRecyclerViewAdapter(private val itemList: List<Item>) : RecyclerView.A
         }
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ) = HomeViewHolder(ItemViewBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        HomeViewHolder(ItemViewBinding.inflate(LayoutInflater.from(parent.context),parent,false))
 
     override fun onBindViewHolder(holder: HomeRecyclerViewAdapter.HomeViewHolder, position: Int) {
         holder.bind(itemList[position].image!!)
